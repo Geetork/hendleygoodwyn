@@ -6,28 +6,147 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --primary: rgb(0, 188, 245);
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    max-height: 70px;
+    padding: 1rem 2.5rem;
+    font-size: inherit;
+    font-weight: 800;
+  }
+
+  .primary {
+    background-color: var(--primary);
+  }
+
+  .secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+  }
+
+  .mode-forwards {
+    animation-fill-mode: forwards;
+  }
+
+  .button-outline-none,
+  .button-outline:focus,
+  .button-outline:active {
+    outline: none;
+  }
+
+  .icon_color_important {
+    fill: white !important;
+    stroke: white !important;
+  }
+}
+
+.padding-x {
+  @apply sm:px-16 px-6;
+}
+
+.padding-y {
+  @apply py-4;
+}
+
+.gap-x {
+  @apply gap-4;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.flex-bottom {
+  @apply flex justify-end items-center;
+}
+
+.flex-center {
+  @apply flex justify-center;
+}
+
+.flex-top {
+  @apply flex items-center;
+}
+
+.h1 {
+  @apply text-2xl md:text-4xl font-extrabold py-2 xl:text-5xl leading-tight md:leading-snug xl:leading-normal;
+}
+
+.h2 {
+  @apply text-3xl font-bold text-primary;
+}
+
+.h3 {
+  @apply text-xl font-bold;
+}
+
+.border-gradient-def {
+  border-image: linear-gradient(to right, #4542e5, #f72a83, #71CAEE, #111111, #880088) 1;
+  border-top: 4px solid;
+}
+
+.hero {
+  @apply flex flex-col gap-5 relative z-0 mx-auto;
+}
+
+.button-primary {
+  @apply primary text-white bg-white/30 shadow-xl lg:text-xl text-lg text-nowrap;
+}
+
+.button-secondary {
+  @apply secondary text-primary shadow-xl lg:text-xl text-lg text-nowrap;
+}
+
+.button-secondary:hover,
+.button-primary:hover {
+  @apply brightness-75;
+}
+
+.button-secondary:disabled,
+.button-primary:disabled {
+  @apply bg-slate-400 pointer-events-none;
+}
+
+.border-gradient {
+  @apply border-gradient-def;
+}
+
+.animation-forwards {
+  @apply mode-forwards;
+}
+
+.form-input {
+  @apply border border-gray-500 px-4 py-2 bg-slate-100 focus:outline-none focus:ring focus:border-blue-500;
+}
+
+.label {
+  @apply font-semibold text-lg;
+}
+
+.close-button {
+  @apply button-outline-none;
+}
+
+.icon {
+  @apply md:fill-white fill-black stroke-0 md:stroke-white stroke-black;
+}
+
+.icon_color {
+  @apply icon_color_important;
+}
+
+.testimonial {
+  @apply border shadow-xl p-10 h-fit;
 }
