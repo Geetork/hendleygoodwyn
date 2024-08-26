@@ -15,12 +15,14 @@ const NavBar: React.FC<{
     className?: string,
     activeTab: string,
     setActiveTab: React.Dispatch<React.SetStateAction<string>>,
+    setIsContactFormVisible: React.Dispatch<React.SetStateAction<boolean>>,
 }> = ({
     className,
     activeTab,
     setActiveTab,
+    setIsContactFormVisible,
 }) => (
-        <nav className='flex md:flex-row flex-col justify-end gap-8 md:text-sm text-4xl md:justify-end flex-[2] h-fit'>
+        <nav className='flex md:flex-row flex-col justify-end gap-8 md:text-[1rem] text-4xl md:justify-end flex-[2] h-fit'>
             <div className={className}>
                 <ul className='flex items-center md:flex-row flex-col gap-x underline-offset-8'>
                     {
@@ -36,21 +38,25 @@ const NavBar: React.FC<{
                     }
                 </ul>
 
-                <Contacts classes='flex items-center gap-2'/>
+                <Contacts 
+                    classes='flex items-center gap-x'
+                    setIsContactFormVisible={setIsContactFormVisible}/>
             </div>
         </nav>
     )
 
-const Header = () => {
+const Header: React.FC<{
+    isContactFormVisible: boolean,
+    setIsContactFormVisible: React.Dispatch<React.SetStateAction<boolean>>,
+}> = ({ isContactFormVisible, setIsContactFormVisible }) => {
     const [activeTab, setActiveTab] = useState('Home');
     const [isVisible, setIsVisible] = useState(false);
-    const [isContactFormVisible, setIsContactFormVisible] = useState(false);
     const [headerColor, setHeaderColor] = useState("transparent");
 
     const path = usePathname();
 
     const getHeaderBgColor = () => {
-        if (path === '/services') {
+        if (path !== '/') {
             setHeaderColor("rgb(0, 188, 245)")
         } else if (window.scrollY > 10) {
             setHeaderColor("rgb(0, 188, 245)")
@@ -86,7 +92,11 @@ const Header = () => {
                 />
             </Link>
 
-            <NavBar className={'flex-between gap-8 max-md:hidden text-white'} activeTab={activeTab} setActiveTab={setActiveTab} />
+            <NavBar 
+                className={'flex-between gap-8 max-md:hidden text-white'} 
+                activeTab={activeTab} 
+                setActiveTab={setActiveTab}
+                setIsContactFormVisible={setIsContactFormVisible} />
 
             <nav className='md:hidden'>
                 <button className="h-5 w-8" onClick={() => setIsVisible(!isVisible)}>
@@ -106,7 +116,9 @@ const Header = () => {
                 <NavBar
                     className='text-black w-full flex items-center justify-center flex-col h-full'
                     activeTab={activeTab}
-                    setActiveTab={setActiveTab} />
+                    setActiveTab={setActiveTab} 
+                    setIsContactFormVisible={setIsContactFormVisible}
+                />
 
                 <div className='flex items-end'>
                     <Button

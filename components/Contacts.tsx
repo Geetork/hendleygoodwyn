@@ -5,13 +5,17 @@ import Instagram from '@/public/instagram.svg';
 import Email from '@/public/email.svg';
 import Facebook from '@/public/facebook.svg';
 
-const Contacts: React.FC<{ classes: string, iconClasses?: string }> = ({ classes, iconClasses }) => {
+const Contacts: React.FC<{ 
+    classes: string, 
+    iconClasses?: string,
+    setIsContactFormVisible: React.Dispatch<React.SetStateAction<boolean>>,
+}> = ({ classes, iconClasses,setIsContactFormVisible }) => {
     return (
         <ul className={classes}>
             <li className='no-underline hover:underline'>
-                <Link href='mailto:info@hendleygoodwyn.com'>
+                <button className='flex justify-center' onClick={() => setIsContactFormVisible(true)}>
                     <Email className={`icon translate-y-0 ${iconClasses}`} width={18} />
-                </Link>
+                </button>
             </li>
             <li className='no-underline hover:underline'>
                 <Link href='http://instagram.com/hendleygoodwynllp'>

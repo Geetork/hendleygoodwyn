@@ -23,12 +23,12 @@ const Team = () => {
     return (
         <section id='team' className='section padding-x text-justify pt-36 pb-4 h-fit'>
             <h1 className='h1'>WHO WE ARE</h1>
-            <div className='flex flex-col gap-10'>
+            <div className='flex flex-col gap-5'>
                 {
                     members.map((member, id) => (
                         <article key={id}>
-                            <div className='w-full pb-2'>
-                                <div className={`${id / 2 === 0 ? 'float-left' : 'float-right'} m-0 relative md:pb-[35%] pb-[100%] w-full md:w-1/3 mb-5`}>
+                            <div className='w-full gap-2'>
+                                <div className={`${id / 2 === 0 ? 'float-left' : 'float-right'} m-0 relative md:pb-[40%] pb-[100%] w-full md:w-1/3 mb-5`}>
                                     <Image
                                         src={member.pic}
                                         alt='team member'
@@ -42,16 +42,18 @@ const Team = () => {
                                     {member.description.split('\n').map((line, id) => (
                                         <p key={id} className='pb-2'>{line}</p>
                                     ))}
+
+                                    <div className='w-full pt-2 pb-2'>
+                                        <h2 className='h3 pb-2 pt-2'>Education</h2>
+                                        <ul>
+                                            {member.education.split(';').map((education, id) => (
+                                                <li key={id} className='before:content-["✔"]'>&nbsp;{education}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <div className='flex justify-between gap-4 w-full py-6 border-gradient'>
-                                <h2 className='h3'>Education</h2>
-                                <ul>
-                                    {member.education.split(';').map((education, id) => (
-                                        <li key={id} className='before:content-["✔"]'>&nbsp;{education}</li>
-                                    ))}
-                                </ul>
-                            </div>
+                            {id !== members.length - 1 && <div className='flex justify-between gap-4 w-full border-gradient' />}
                         </article>
                     ))
                 }

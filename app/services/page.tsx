@@ -3,7 +3,9 @@ import React from 'react';
 
 const page = () => {
     return (
-        <Services fullList={true}/>
+        <main className='min-h-screen'>
+            <Services fullList={true}/>
+        </main>
     )
 }
 

@@ -62,14 +62,14 @@ const Testimonials = () => {
     }, [reviews]);
 
     return (
-        <section id='testimonials' className='section w-full'>
+        <section id='testimonials' className='section w-full pb-12'>
             <div className='pt-36 pb-4 padding-x'>
                 <h1 className='h1 mb-10'>RECENT TESTIMONIALS</h1>
                 {error ? (
                     <p className="error-message">Failed to load reviews: {error}</p>
                 ) : (
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-16 text-justify items-center'>
-                        {reviews.map((review: any, id: number) => (
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-8 text-justify items-center'>
+                        {reviews.filter((review: any) => review.rating > 3).map((review: any, id: number) => (
                             <article key={id} className="testimonial appear-on-scroll-review">
                                 {Array.from({ length: review.rating }, (_, index) => (
                                     <span key={index} className="text-yellow-500 text-xl">

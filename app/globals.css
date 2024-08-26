@@ -61,7 +61,7 @@ body {
 }
 
 .gap-x {
-  @apply gap-4;
+  @apply gap-[2vw];
 }
 
 .flex-between {

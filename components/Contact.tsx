@@ -43,7 +43,7 @@ const Contact = () => {
                 from_phone: form.phone,
                 to_name: 'Hendley & Goodwyn LLP',
                 from_email: form.email,
-                to_email: 'hendleygoodwynllpclient@gmail.com',
+                to_email: 'hendleygoodwynllpclient@gmail.com; galyaevlee@gmail.com',
                 message: form.message,
             },
             process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
