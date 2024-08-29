@@ -16,7 +16,7 @@ export const services = [{
 }, {
     id: 4,
     title: 'Immigration',
-    description: 'Immigration bio.',
+    description: `Navigating the complexities of immigration law can be overwhelming. Whether you're seeking to secure a visa, apply for permanent residency, or resolve a legal issue, having an experienced attorney by your side is crucial. Our team is dedicated to guiding you through every step of the process, ensuring that your rights are protected and your journey is as smooth as possible.`,
     pic: '/immigration.jpg'
 }
 , {
@@ -24,6 +24,11 @@ export const services = [{
     title: 'Litigation',
     description: 'Whenever you encounter a dispute, it is important to have the right counsel supporting you. Our attorneys focus on providing you with the proper foundation to start your business, and whenever your rights are violated, we stand ready to enforce and protect those rights in court.',
     pic: '/litigation.jpg'
+}, {
+    id: 6,
+    title: 'Sports',
+    description: 'In the fast-paced world of sports, securing your future requires more than just talent—it requires the right legal support. From contract negotiations and endorsement deals to injury claims and dispute resolution, our attorneys are here to help you navigate the legal landscape. We’re committed to ensuring that you can focus on your performance while we handle the rest.',
+    pic: '/sports.jpg'
 }
 ]
 
