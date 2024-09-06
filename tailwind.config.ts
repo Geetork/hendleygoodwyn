@@ -41,7 +41,7 @@ const config: Config = {
       animation: {
         slideInLeft: 'slide-in-left 1s ease-in-out 0.2s 1',
         appear: 'animate-appear 0.2s ease-in-out',
-        appearLong: 'animate-appear 2s ease-in-out',
+        appearLong: 'animate-appear 1s ease-in-out',
       }
     },
   },

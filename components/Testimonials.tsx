@@ -9,18 +9,19 @@ const Testimonials = () => {
     useEffect(() => {
         async function fetchReviews() {
             try {
-                const response = await fetch(`/api/getReviews`);
+                const response = await fetch(`/api/get-reviews`);
+      
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response}`);
                 }
 
                 const data = await response.json();
 
-                if (!data?.data?.result?.reviews) {
+                if (!data?.result?.reviews) {
                     throw new Error('No reviews found in response');
                 }
 
-                setReviews(data.data.result.reviews);
+                setReviews(data.result.reviews);
                 setError(null);
             } catch (err) {
                 console.error('Error fetching reviews:', err);
